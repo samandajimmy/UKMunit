@@ -159,15 +159,25 @@ class ProdukModel extends CI_Model {
         $query = $this->db->get_where($this->tab_produk, array('idUkm' => $id));
         return $query->result();
     }
-    
-    public function getAllKategori(){}
-	
-	
+
+    public function getRelatedProduk($id) {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->where('idUkm', $id);
+        $this->db->limit('4');
+        $this->db->order_by($this->tab_produk . '.tglInput', 'DESC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getAllKategori() {
+        
+    }
 
     public function produkPagination($url, $sort = NULL) {
         $config = array();
         $i = 4;
-		$url1 = $sort;
+        $url1 = $sort;
         $config["base_url"] = base_url() . "index.php/user/" . $url . "/" . $url1;
         $config["total_rows"] = $this->countData($sort);
         $config["per_page"] = 2;
@@ -191,22 +201,22 @@ class ProdukModel extends CI_Model {
         $data["links"] = $this->pagination->create_links();
         return $data;
     }
-	
-	public function countData($sort = NULL, $cari = NULL) {
-		$query = $this->db->get_where('produk', array('idUkm' => $sort));
-		$data = $query->result();
+
+    public function countData($sort = NULL, $cari = NULL) {
+        $query = $this->db->get_where('produk', array('idUkm' => $sort));
+        $data = $query->result();
         $counter = count($data);
         return $counter;
     }
 
     public function fetchData($limit, $start, $sort = NULL) {
-            $this->db->select($this->tab_produk . '.*');
-            $this->db->from($this->tab_produk);
-            $this->db->where($this->tab_produk . '.idUkm', $sort);
-            $this->db->limit($limit, $start);
-            $this->db->order_by($this->tab_produk . '.tglInput', 'DESC');
-            $query = $this->db->get();
-            $data = $query->result();
+        $this->db->select($this->tab_produk . '.*');
+        $this->db->from($this->tab_produk);
+        $this->db->where($this->tab_produk . '.idUkm', $sort);
+        $this->db->limit($limit, $start);
+        $this->db->order_by($this->tab_produk . '.tglInput', 'DESC');
+        $query = $this->db->get();
+        $data = $query->result();
         return $data;
     }
 

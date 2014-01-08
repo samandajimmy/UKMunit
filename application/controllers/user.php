@@ -237,7 +237,7 @@ class User extends CI_Controller {
         $data['notif'] = $this->session->flashdata('notif');
         $data['artikel'] = $this->artikelModel->getLatestArtikel(9);
         $data['featuredArtikel'] = $this->artikelModel->getFeaturedArtikel(5);
-        $data['ukm'] = $this->ukmModel->getUkmHome(); 
+        $data['ukm'] = $this->ukmModel->getUkmHome();
         $data['title'] = 'Home';
         $data['view'] = 'user/home';
         $data['slide'] = 'user/slide';
@@ -402,8 +402,8 @@ class User extends CI_Controller {
             die();
         }
     }
-    
-    public function ukmHome($id){
+
+    public function ukmHome($id) {
         $data = $this->produkModel->produkPagination('ukmHome', $id);
         $data['notif'] = $this->session->flashdata('notif');
         $data['view'] = 'user/ukmHome';
@@ -412,34 +412,33 @@ class User extends CI_Controller {
         $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
         $data ['title'] = $data['ukm'][0]->namaUKM . ' Home';
         $this->load->view('templateUser', $data);
-    }	
-	
-	
-	public function ukmList(){
+    }
+
+    public function ukmList() {
         $data = $this->ukmModel->pagination('ukmList', 'ukm', $cari = NULL, $price = NULL);
-		$data['notif'] = $this->session->flashdata('notif');
-		$data['view'] = 'user/ukmList';
-		$data['title'] = 'Daftar UKM Kami';
+        $data['notif'] = $this->session->flashdata('notif');
+        $data['view'] = 'user/ukmList';
+        $data['title'] = 'Daftar UKM Kami';
         $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
-		$this->load->view('templateUser', $data);
-	}	
-	
-	
-	public function artikelList(){
+        $this->load->view('templateUser', $data);
+    }
+
+    public function artikelList() {
         $data = $this->ukmModel->pagination('artikelList', 'artikel', $cari = NULL, $price = NULL);
-		$data['notif'] = $this->session->flashdata('notif');
-		$data['view'] = 'user/artikelList';
-		$data['title'] = 'Daftar artikel Kami';
+        $data['notif'] = $this->session->flashdata('notif');
+        $data['view'] = 'user/artikelList';
+        $data['title'] = 'Daftar artikel Kami';
         $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
-		$this->load->view('templateUser', $data);
-	}
-	
-    public function produkDetail($id){
+        $this->load->view('templateUser', $data);
+    }
+
+    public function produkDetail($id) {
         $data['notif'] = $this->session->flashdata('notif');
         $data['view'] = 'user/produkDetail';
         $data['title'] = 'Detail Produk';
         $data['produk'] = $this->produkModel->getProdukDetail($id);
+        $data['relProduk'] = $this->produkModel->getRelatedProduk($data['produk'][0]->idUkm);
         $this->load->view('templateUser', $data);
-    }	
+    }
 
 }

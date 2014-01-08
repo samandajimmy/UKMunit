@@ -28,10 +28,6 @@
             <div class="carousel-inner">
                 <div class="active item"><img src="<?php echo base_url('ukm/gambar/' . $ukm[0]->gambarUKM); ?>" alt=""></div>
             </div>
-
-            <!-- Carousel nav -->
-            <!--            <a class="carousel-control left" href="#productSlider" data-slide="prev">&lsaquo;</a>
-                        <a class="carousel-control right" href="#productSlider" data-slide="next">&rsaquo;</a>-->
         </div><!--end productSlider-->
 
 
@@ -54,11 +50,11 @@
                             <div class="thumbSetting">
                                 <div class="thumbTitle">
                                     <a href="#" class="invarseColor">
-                                        Foliomania the designer portfolio brochure
+                                        <?php echo $row->deskripsiProduk; ?>
                                     </a>
                                 </div>
                                 <div class="thumbPrice">
-                                    <span>$150.00</span>
+                                    <span><?php echo 'Rp. ' . number_format($row->hargaProduk, 0, ',', '.'); ?></span>
                                 </div>
                             </div>
                         </li>
