@@ -21,6 +21,7 @@
         <!-- jquery ui css -->
         <link rel="stylesheet" href="<?php echo base_url('assets/user'); ?>/css/jquery-ui-1.10.1.min.css">
         <link rel="stylesheet" href="<?php echo base_url('assets/user'); ?>/css/customize.css">
+        <link rel="stylesheet" href="<?php echo base_url('assets/user'); ?>/css/custom.css">
         <link rel="stylesheet" href="<?php echo base_url('assets/user'); ?>/css/font-awesome.css">
         <link rel="stylesheet" href="<?php echo base_url('assets/user'); ?>/css/style.css">
         <!-- flexslider css-->
@@ -49,7 +50,7 @@
                 <div class="upperHeader">
                     <div class="container">
                         <p>
-                            Welcome to ShopFine, <a href="login.html">Login</a> or <a href="<?php echo site_url('user/userRegis'); ?>">Create new account</a>
+                            Welcome to UKMunity, <a href="#">Login</a> or <a href="<?php echo site_url('user/userRegis'); ?>">Create new account</a>
                         </p>
                     </div><!--end container-->
                 </div><!--end upperHeader-->
@@ -82,7 +83,7 @@
                         <div class="navbar">
 
                             <ul class="nav">
-                                <li class="active"><a href="#"><i class="icon-home"></i></a></li>
+                                <li class="active"><a href="<?php echo site_url('user/userHome'); ?>"><i class="icon-home"></i></a></li>
 <!--                                <li>
                                     <a href="#">Pages &nbsp;<i class="icon-caret-down"></i></a>
                                     <div>
@@ -107,8 +108,8 @@
                                         </ul>
                                     </div>
                                 </li>-->
-                                <li><a href="#">UKM</a></li>
-                                <li><a href="#">Artikel</a></li>
+                                <li><a href="<?php echo site_url('user/ukmList'); ?>">UKM</a></li>
+                                <li><a href="<?php echo site_url('user/artikelList'); ?>">Artikel</a></li>
                             </ul><!--end nav-->
 
                         </div>

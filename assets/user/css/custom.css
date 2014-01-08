@@ -1,0 +1,12 @@
+.float-left {
+	float: left;
+}
+
+.blog-img {
+	margin-bottom: 10px;
+	min-height: 100px
+}
+
+.blog-content-title {
+	padding-left: 115px;
+}

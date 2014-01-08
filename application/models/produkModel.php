@@ -161,6 +161,54 @@ class ProdukModel extends CI_Model {
     }
     
     public function getAllKategori(){}
+	
+	
+
+    public function produkPagination($url, $sort = NULL) {
+        $config = array();
+        $i = 4;
+		$url1 = $sort;
+        $config["base_url"] = base_url() . "index.php/user/" . $url . "/" . $url1;
+        $config["total_rows"] = $this->countData($sort);
+        $config["per_page"] = 2;
+        $config["uri_segment"] = $i;
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '</a></li>';
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = round($choice);
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment($i)) ? $this->uri->segment($i) : 0;
+        $data['num_links'] = $config["num_links"];
+        $data["result"] = $this->fetchData($config["per_page"], $page, $sort);
+        $data["links"] = $this->pagination->create_links();
+        return $data;
+    }
+	
+	public function countData($sort = NULL, $cari = NULL) {
+		$query = $this->db->get_where('produk', array('idUkm' => $sort));
+		$data = $query->result();
+        $counter = count($data);
+        return $counter;
+    }
+
+    public function fetchData($limit, $start, $sort = NULL) {
+            $this->db->select($this->tab_produk . '.*');
+            $this->db->from($this->tab_produk);
+            $this->db->where($this->tab_produk . '.idUkm', $sort);
+            $this->db->limit($limit, $start);
+            $this->db->order_by($this->tab_produk . '.tglInput', 'DESC');
+            $query = $this->db->get();
+            $data = $query->result();
+        return $data;
+    }
 
 }
 

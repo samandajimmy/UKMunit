@@ -404,14 +404,42 @@ class User extends CI_Controller {
     }
     
     public function ukmHome($id){
+        $data = $this->produkModel->produkPagination('ukmHome', $id);
         $data['notif'] = $this->session->flashdata('notif');
         $data['view'] = 'user/ukmHome';
         $data['title'] = 'UKM Home';
         $data['ukm'] = $this->ukmModel->getUkmDetail($id);
-        $data['produk'] = $this->produkModel->getProdukByUkm($id);
         $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
         $data ['title'] = $data['ukm'][0]->namaUKM . ' Home';
         $this->load->view('templateUser', $data);
-    }
+    }	
+	
+	
+	public function ukmList(){
+        $data = $this->ukmModel->pagination('ukmList', 'ukm', $cari = NULL, $price = NULL);
+		$data['notif'] = $this->session->flashdata('notif');
+		$data['view'] = 'user/ukmList';
+		$data['title'] = 'Daftar UKM Kami';
+        $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
+		$this->load->view('templateUser', $data);
+	}	
+	
+	
+	public function artikelList(){
+        $data = $this->ukmModel->pagination('artikelList', 'artikel', $cari = NULL, $price = NULL);
+		$data['notif'] = $this->session->flashdata('notif');
+		$data['view'] = 'user/artikelList';
+		$data['title'] = 'Daftar artikel Kami';
+        $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
+		$this->load->view('templateUser', $data);
+	}
+	
+    public function produkDetail($id){
+        $data['notif'] = $this->session->flashdata('notif');
+        $data['view'] = 'user/produkDetail';
+        $data['title'] = 'Detail Produk';
+        $data['produk'] = $this->produkModel->getProdukDetail($id);
+        $this->load->view('templateUser', $data);
+    }	
 
 }
