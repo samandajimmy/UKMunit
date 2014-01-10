@@ -441,4 +441,13 @@ class User extends CI_Controller {
         $this->load->view('templateUser', $data);
     }
 
+    public function artikelDetail($id) {
+        $data['notif'] = $this->session->flashdata('notif');
+        $data['view'] = 'user/artikelDetail';
+        $data['title'] = 'Detail artikel';
+        $data['artikel'] = $this->artikelModel->getArtikelDetail($id);
+        //$data['relProduk'] = $this->produkModel->getRelatedProduk($data['produk'][0]->idUkm);
+        $this->load->view('templateUser', $data);
+    }
+
 }

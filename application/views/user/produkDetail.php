@@ -14,7 +14,7 @@
                             ?>
                             <li class="span4 clearfix">
                                 <div class="thumbImage">
-                                    <a href="#"><img style="width: 96px;" src="<?php echo base_url('produk/thumbnail/' . $row->gambarProduk); ?>" alt=""></a>
+                                    <a href="#"><img style="width: 72px;" src="<?php echo base_url('produk/thumbnail/' . $row->gambarProduk); ?>" alt=""></a>
                                 </div>
                                 <div class="thumbSetting">
                                     <div class="thumbTitle">

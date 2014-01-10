@@ -51,9 +51,9 @@
 					<article class="blog-article float-left" style="margin-left: 0;">
 						<div class="span3">
 							<div class="blog-img">
-								<a href="#"><img class="float-left" src="<?php echo base_url('artikel/thumbnail/' . $row->gambarArtikel); ?>" alt="Blog image"></a>
+								<a href="<?php echo site_url('user/artikelDetail/' . $row->id); ?>"><img class="float-left" src="<?php echo base_url('artikel/thumbnail/' . $row->gambarArtikel); ?>" alt="Blog image"></a>
 								<div class="blog-content-title">
-									<h4><a href="#" class="invarseColor"><?php echo $row->namaArtikel; ?></a></h4>
+									<h4><a href="<?php echo site_url('user/artikelDetail/' . $row->id); ?>" class="invarseColor"><?php echo $row->namaArtikel; ?></a></h4>
 								</div>
 							</div><!--end blog-img-->
 							<div class="blog-content">
