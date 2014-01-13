@@ -50,7 +50,7 @@
                 <div class="upperHeader">
                     <div class="container">
                         <p>
-                            Welcome to UKMunity, <a href="#">Login</a> or <a href="<?php echo site_url('user/userRegis'); ?>">Create new account</a>
+                            Welcome to UKMunity, <a href="<?php echo site_url('user/userAdmin'); ?>">Login</a> or <a href="<?php echo site_url('user/userRegis'); ?>">Create new account</a>
                         </p>
                     </div><!--end container-->
                 </div><!--end upperHeader-->
@@ -110,6 +110,7 @@
                                 </li>-->
                                 <li><a href="<?php echo site_url('user/ukmList'); ?>">UKM</a></li>
                                 <li><a href="<?php echo site_url('user/artikelList'); ?>">Artikel</a></li>
+                                <li><a href="<?php echo site_url('user/pengaduan'); ?>">Pengaduan Pelanggan</a></li>
                             </ul><!--end nav-->
 
                         </div>

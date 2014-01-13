@@ -159,6 +159,24 @@ class UserModel extends CI_Model {
         }
         return $data;
     }
+	
+	public function savePengaduan($id, $data) {
+        if ($id == NULL) { //save the profile
+            if ($this->db->insert('message', $data)) {
+                $res = TRUE;
+                $this->session->set_flashdata('notif', 'Data telah berhasil disimpan');
+            } else {
+                $res = FALSE;
+                $this->session->set_flashdata('notif', 'Data gagal disimpan, silahkan coba beberapa saat lagi');
+            }
+        }
+    
+        if ($res) {
+            return $this->db->insert_id();
+        } else {
+            return $res;
+        }
+    }
 
 }
 

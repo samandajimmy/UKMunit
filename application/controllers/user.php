@@ -449,5 +449,26 @@ class User extends CI_Controller {
         //$data['relProduk'] = $this->produkModel->getRelatedProduk($data['produk'][0]->idUkm);
         $this->load->view('templateUser', $data);
     }
+	
+	public function pengaduan(){
+		$data['notif'] = $this->session->flashdata('notif');
+		$data['view'] = 'user/pengaduan';
+		$data['title'] = 'Pengaduan Pelanggan';
+		$this->load->view('templateUser', $data);
+	}
+	
+	public function savePengaduan(){
+		$pengaduan = array(
+			'nama' => $this->input->post('nama'),
+			'email' => $this->input->post('email'),
+			'telepon' => $this->input->post('telepon'),
+			'subjek' => $this->input->post('subjek'),
+			'pesan' => $this->input->post('pesan'),
+		);
+		if ($pengaduan){
+			$this->userModel->savePengaduan($id, $pengaduan);
+			redirect('user');
+		}
+	}
 
 }

@@ -107,17 +107,21 @@
                 <div class="titleHeader clearfix">
                     <h3>Users Comments</h3>
                 </div><!--end titleHeader-->
+				
+				<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=636889163009701";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-                <ul class="media-list">
+<div class="fb-comments" data-href="http://UKMunity.com/produk/<?php echo $produk[0]->id; ?>" data-width="720" data-numposts="5" data-colorscheme="light"></div>
+
+                <!--<ul class="media-list">
                     <li class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="img/64x64.jpg" alt="user-avatar">
-                        </a>
                         <div class="media-body">
-                            <div class="pull-right">
-                                <button class="btn btn-mini" rel="tooltip" data-title="Reply" data-placment="top"><i class="icon-refresh"></i></button>
-                                <button class="btn btn-mini"  rel="tooltip" data-title="Remove" data-placment="top"><i class="icon-trash"></i></button>
-                            </div>
                             <h4 class="media-heading">
                                 <a href="#" class="invarseColor">John Doe1</a>
                             </h4>
@@ -126,83 +130,26 @@
                             </p>
                         </div>
                     </li>
-                    <li class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="img/64x64.jpg" alt="user-avatar">
-                        </a>
-                        <div class="media-body">
-                            <div class="pull-right">
-                                <button class="btn btn-mini" rel="tooltip" data-title="Reply" data-placment="top"><i class="icon-refresh"></i></button>
-                                <button class="btn btn-mini"  rel="tooltip" data-title="Remove" data-placment="top"><i class="icon-trash"></i></button>
-                            </div>
-                            <h4 class="media-heading">
-                                <a href="#" class="invarseColor">John Doe1</a>
-                            </h4>
-                            <p>
-                                consectetur adipiscing eli. Nulla tristique posuere felis vel pretium. Sed sit amet nisi elit. consectetur adipiscing eli. Nulla tristique posuere felis vel pretium. Sed sit amet nisi elit.
-                            </p>
-
-                            <div class="media">
-                                <ul>
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="img/64x64.jpg" alt="user-avatar">
-                                        </a>
-                                        <div class="media-body">
-                                            <div class="pull-right">
-                                                <button class="btn btn-mini" rel="tooltip" data-title="Reply" data-placment="top"><i class="icon-refresh"></i></button>
-                                                <button class="btn btn-mini"  rel="tooltip" data-title="Remove" data-placment="top"><i class="icon-trash"></i></button>
-                                            </div>
-                                            <h4 class="media-heading">
-                                                <a href="#" class="invarseColor">John Doe1</a>
-                                            </h4>
-                                            <p>
-                                                consectetur adipiscing eli. Nulla tristique posuere felis vel pretium. Sed sit amet nisi elit. consectetur adipiscing eli. Nulla tristique posuere felis vel pretium. Sed sit amet nisi elit.
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="img/64x64.jpg" alt="user-avatar">
-                        </a>
-                        <div class="media-body">
-                            <div class="pull-right">
-                                <button class="btn btn-mini" rel="tooltip" data-title="Reply" data-placment="top"><i class="icon-refresh"></i></button>
-                                <button class="btn btn-mini"  rel="tooltip" data-title="Remove" data-placment="top"><i class="icon-trash"></i></button>
-                            </div>
-                            <h4 class="media-heading">
-                                <a href="#" class="invarseColor">John Doe1</a>
-                            </h4>
-                            <p>
-                                consectetur adipiscing eli. Nulla tristique posuere felis vel pretium. Sed sit amet nisi elit. consectetur adipiscing eli. Nulla tristique posuere felis vel pretium. Sed sit amet nisi elit.
-                            </p>
-                        </div>
                     </li>
                 </ul><!--end media-list-->
             </div><!--end user-comments-->
-
+			<!--
             <div class="make-comment">
                 <div class="titleHeader clearfix">
                     <h3>Leave Comment</h3>
                 </div><!--end titleHeader-->
-
+				<!--
                 <form method="#" action="#">
                     <div class="controls controls-row">
-                        <input type="text" name="" value="" placeholder="Your Name...*" class="span3">
-                        <input type="text" name="" value="" placeholder="E-Mail...*" class="span3">
-                        <input type="text" name="" value="" placeholder="URL..." class="span3">
+                        <input type="text" name="" value="" placeholder="Your Name...*" class="span4">
+                        <input type="text" name="" value="" placeholder="E-Mail...*" class="span5">
                     </div>
                     <div class="controls">
                         <textarea name="" class="span9" placeholder="Your Message...*"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Add Comment</button>
                 </form><!--end form-->
-            </div><!--end make-comment-->
-
+            <!--</div><!--end make-comment-->
 
         </div><!--end row-->
 
