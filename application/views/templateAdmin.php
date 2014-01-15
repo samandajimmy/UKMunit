@@ -37,7 +37,9 @@
         <link href="<?php echo base_url('assets/admin'); ?>/assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url('assets/admin'); ?>/assets/plugins/bootstrap-switch/static/stylesheets/bootstrap-switch-metro.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/admin'); ?>/assets/plugins/jquery-tags-input/jquery.tagsinput.css" />
-        <link rel="stylesheet" href="<?php echo base_url('assets/admin'); ?>/assets/plugins/data-tables/DT_bootstrap.css" />
+        <link rel="stylesheet" href="<?php echo base_url('assets/admin'); ?>/assets/plugins/data-tables/DT_bootstrap.css" />		     
+		<link href="<?php echo base_url('assets/admin'); ?>/assets/css/pages/inbox.css" rel="stylesheet" type="text/css" />
+
         <!-- END PAGE LEVEL STYLES -->
         <link rel="shortcut icon" href="<?php echo base_url('assets/admin'); ?>/favicon.ico" />
     </head>
@@ -75,14 +77,19 @@
                     <ul class="nav pull-right">
                         <?php
                         if ($this->session->userdata('tipeUser') == 1) {
-                            $this-db
+                            $this->db->select('*');
+							$this->db->from('message');
+							$this->db->where('status', 0);
+							$query = $this->db->get();
+							$result = $query->result();
+							$counter = count($result);
                             ?>
 
                             <!-- BEGIN INBOX DROPDOWN -->
                             <li class="dropdown" id="header_inbox_bar">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <a href="<?php echo site_url('user/inbox'); ?>">
                                     <i class="icon-envelope"></i>
-                                    <span class="badge">5</span>
+                                    <span class="badge"><?php echo $counter; ?></span>
                                 </a>
 <!--                                <ul class="dropdown-menu extended inbox">
                                     <li>
@@ -367,7 +374,8 @@
 
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?php echo base_url('assets/admin'); ?>/assets/scripts/app.js"></script>
+        <script src="<?php echo base_url('assets/admin'); ?>/assets/scripts/app.js"></script>      
+		<script src="<?php echo base_url('assets/admin'); ?>/assets/scripts/inbox.js"></script>
         <script src="<?php echo base_url('assets/admin'); ?>/assets/scripts/form-components.js"></script>  
         <script src="<?php echo base_url('assets/admin'); ?>/assets/scripts/table-managed.js"></script>  
         <script src="<?php echo base_url('assets/admin'); ?>/assets/scripts/table-advanced.js"></script>  
@@ -406,6 +414,7 @@ if ($notif != '') {
 ?>
         // initiate layout and plugins
         App.init();
+        Inbox.init();
         FormComponents.init();
         TableManaged.init();
 

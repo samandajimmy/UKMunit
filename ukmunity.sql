@@ -14,14 +14,11 @@
 # ------------------------------------------------------
 # Server version 5.5.25a
 
-DROP DATABASE IF EXISTS `ukmunity`;
-CREATE DATABASE `ukmunity` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `ukmunity`;
-
 #
 # Table structure for table artikel
 #
 
+DROP TABLE IF EXISTS `artikel`;
 CREATE TABLE `artikel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `namaArtikel` varchar(255) DEFAULT NULL,
@@ -43,9 +40,29 @@ INSERT INTO `artikel` VALUES (12,'Walkman Jadi Koleksi Museum','Walkman Jadi Kol
 UNLOCK TABLES;
 
 #
+# Table structure for table message
+#
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `telepon` varchar(255) DEFAULT NULL,
+  `subjek` varchar(255) DEFAULT NULL,
+  `pesan` text,
+  `status` char(1) DEFAULT '0',
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+INSERT INTO `message` VALUES (1,'sdafasdf','asdfadsfs@gmail.com','asdfasdf','asdfasdf','afdadsfdaf','0');
+/*!40000 ALTER TABLE `message` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
 # Table structure for table msg
 #
 
+DROP TABLE IF EXISTS `msg`;
 CREATE TABLE `msg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
@@ -57,6 +74,7 @@ UNLOCK TABLES;
 # Table structure for table produk
 #
 
+DROP TABLE IF EXISTS `produk`;
 CREATE TABLE `produk` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUkm` int(11) DEFAULT NULL,
@@ -82,6 +100,7 @@ UNLOCK TABLES;
 # Table structure for table produk_user
 #
 
+DROP TABLE IF EXISTS `produk_user`;
 CREATE TABLE `produk_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idProduk` int(11) DEFAULT NULL,
@@ -97,6 +116,7 @@ UNLOCK TABLES;
 # Table structure for table typemsg
 #
 
+DROP TABLE IF EXISTS `typemsg`;
 CREATE TABLE `typemsg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
@@ -108,6 +128,7 @@ UNLOCK TABLES;
 # Table structure for table ukm
 #
 
+DROP TABLE IF EXISTS `ukm`;
 CREATE TABLE `ukm` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUkmProfile` int(11) DEFAULT NULL,
@@ -127,6 +148,7 @@ UNLOCK TABLES;
 # Table structure for table ukmkategori
 #
 
+DROP TABLE IF EXISTS `ukmkategori`;
 CREATE TABLE `ukmkategori` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `namaKategoriUkm` varchar(255) DEFAULT NULL,
@@ -141,6 +163,7 @@ UNLOCK TABLES;
 # Table structure for table ukmprofile
 #
 
+DROP TABLE IF EXISTS `ukmprofile`;
 CREATE TABLE `ukmprofile` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `namaUKM` varchar(255) DEFAULT NULL,
@@ -164,6 +187,7 @@ UNLOCK TABLES;
 # Table structure for table user
 #
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(32) DEFAULT NULL,
@@ -184,6 +208,7 @@ UNLOCK TABLES;
 # Table structure for table user_artikel
 #
 
+DROP TABLE IF EXISTS `user_artikel`;
 CREATE TABLE `user_artikel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) DEFAULT NULL,
@@ -199,6 +224,7 @@ UNLOCK TABLES;
 # Table structure for table user_msg
 #
 
+DROP TABLE IF EXISTS `user_msg`;
 CREATE TABLE `user_msg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) DEFAULT NULL,
@@ -216,6 +242,7 @@ UNLOCK TABLES;
 # Table structure for table user_msg_user
 #
 
+DROP TABLE IF EXISTS `user_msg_user`;
 CREATE TABLE `user_msg_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser_msg` int(11) DEFAULT NULL,

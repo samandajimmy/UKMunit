@@ -470,5 +470,14 @@ class User extends CI_Controller {
 			redirect('user');
 		}
 	}
+	
+	public function inbox(){
+		if ($this->session->userdata('logged_in') && $this->session->userdata('tipeUser') == 1){			
+		$data['notif'] = $this->session->flashdata('notif');
+		$data['view'] = 'admin/inbox';
+		$data['title'] = 'Kota Masuk Pengaduan Pelanggan';
+		$this->load->view('templateAdmin', $data);
+		}
+	}
 
 }
