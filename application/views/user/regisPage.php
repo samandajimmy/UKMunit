@@ -6,7 +6,7 @@
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>Metronic | Form Stuff - Form Wizard</title>
+        <title>UKMunity | Daftarkan UKM anda</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
