@@ -71,7 +71,7 @@ class Produk extends CI_Controller {
             $this->session->set_flashdata('notif', 'File gambar produk rusak');
             redirect('produk/produkInput');
         }
-        $idArtikel = $this->produkModel->saveProduk($id, $produk);
+        $idArtikel = $this->produkModel->saveProduk($id = NULL, $produk);
         redirect('produk/produkList');
     }
 

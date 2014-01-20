@@ -295,12 +295,12 @@
                             <?php
                         }
                         ?>
-                        <li class="last ">
+<!--                        <li class="last ">
                             <a href="charts.html">
                                 <i class="icon-bar-chart"></i> 
                                 <span class="title">Visual Charts</span>
                             </a>
-                        </li>
+                        </li>-->
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>

@@ -93,7 +93,7 @@ class Ukm extends CI_Controller {
         if ($this->input->post('idKategori')) {
             $id = $this->input->post('idKategori');
         }
-        $this->ukmModel->saveKategoriUkm($id, $kategori);
+        $this->ukmModel->saveKategoriUkm($id = NULL, $kategori);
         redirect('ukm/ukmTambahKategori');
     }
 

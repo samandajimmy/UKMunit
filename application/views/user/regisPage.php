@@ -243,7 +243,7 @@
                                                 <!--<a href="javascript:;" class="btn green button-submit">
                                                                                                     Submit <i class="m-icon-swapright m-icon-white"></i>
                                                                                                 </a>-->
-                                                <button type="submit" class="btn green button-submit">Sign in <i class="m-icon-swapright m-icon-white"></i></button>
+                                                <button type="submit" class="btn green button-submit">Submit <i class="m-icon-swapright m-icon-white"></i></button>
                                             </div>
                                         </div>
                                     </form>

@@ -93,7 +93,7 @@ class User extends CI_Controller {
                     'idKategoriUKM' => $this->input->post('idKategoriUkm'),
                     'idUser' => $lastUserID
                 );
-                $this->ukmModel->saveUkm($id, $ukm);
+                $this->ukmModel->saveUkm($id = NULL, $ukm);
                 redirect('user/userHome');
             } else {
                 redirect('user/userRegis');
@@ -301,7 +301,7 @@ class User extends CI_Controller {
     public function userLogout() {
         $this->session->unset_userdata();
         $this->session->sess_destroy();
-        redirect('user/userAdmin');
+        redirect('user/userHome');
     }
 
     public function userInput() {
@@ -466,7 +466,7 @@ class User extends CI_Controller {
 			'pesan' => $this->input->post('pesan'),
 		);
 		if ($pengaduan){
-			$this->userModel->savePengaduan($id, $pengaduan);
+			$this->userModel->savePengaduan($id = NULL, $pengaduan);
 			redirect('user');
 		}
 	}

@@ -41,7 +41,6 @@ class Artikel extends CI_Controller {
     }
 
     public function artikelSave() {
-        date_default_timezone_set();
         $artikel = array(
             'namaArtikel' => $this->input->post('namaArtikel'),
             'deskripsiArtikel' => $this->input->post('deskripsiArtikel'),
@@ -69,7 +68,7 @@ class Artikel extends CI_Controller {
             $this->session->set_flashdata('notif', 'File gambar artikel rusak');
             redirect('artikel/artikelInput');
         }
-        $idArtikel = $this->artikelModel->saveArtikel($id, $artikel);
+        $idArtikel = $this->artikelModel->saveArtikel($id = NULL, $artikel);
         redirect('artikel/artikelList');
     }
 
