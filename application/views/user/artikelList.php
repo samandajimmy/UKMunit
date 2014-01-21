@@ -25,7 +25,7 @@
 
 
         <div class="productFilter clearfix" style="margin: 0;">
-            <h1>Daftar UKM Kami</h1>
+            <h1>Artikel UKMunity</h1>
 
         </div><!--end productFilter-->
 

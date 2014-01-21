@@ -14,11 +14,11 @@
                             ?>
                             <li class="span4 clearfix">
                                 <div class="thumbImage">
-                                    <a href="#"><img style="width: 72px;" src="<?php echo base_url('produk/thumbnail/' . $row->gambarProduk); ?>" alt=""></a>
+                                    <a href="<?php echo site_url('user/produkDetail/' . $row->id); ?>"><img style="width: 72px;" src="<?php echo base_url('produk/thumbnail/' . $row->gambarProduk); ?>" alt=""></a>
                                 </div>
                                 <div class="thumbSetting">
                                     <div class="thumbTitle">
-                                        <a href="#" class="invarseColor">
+                                        <a href="<?php echo site_url('user/produkDetail/' . $row->id); ?>" class="invarseColor">
                                             <?php echo $row->namaProduk; ?>
                                         </a>
                                     </div>

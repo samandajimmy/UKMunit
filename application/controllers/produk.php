@@ -33,9 +33,10 @@ class Produk extends CI_Controller {
     }
 
     public function produkList() {
+		$idUkm = $this->ukmModel->getIdUkm($this->session->userdata('id'));
         $data['notif'] = $this->session->flashdata('notif');
         $data['action'] = site_url('produk/produkDeleteSelected');
-        $data['produk'] = $this->produkModel->getAllProduk();
+        $data['produk'] = $this->produkModel->getProdukByUkm($idUkm);
         $data['view'] = 'admin/listProduk';
         $data['title'] = 'List Produk';
         $this->load->view('templateAdmin', $data);

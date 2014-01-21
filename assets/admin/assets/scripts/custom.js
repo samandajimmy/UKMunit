@@ -99,8 +99,7 @@ jQuery(document).ready(function() {
 	
     jQuery('.detailIsi').click(function(){
         var isi = $(this).attr('data');
-        var judul = $(this).attr('name');
-        
+        var judul = $(this).attr('name');        
         
         if (isi) {
             $('#isiArtikel').html('');
@@ -128,6 +127,45 @@ jQuery(document).ready(function() {
             $('#isiArtikel').append(opt);                
         }
     });
+	
+	jQuery('.detailPesan').click(function(){
+        var isi = $(this).attr('data');
+        var judul = $(this).attr('name');
+        var id = $(this).attr('id');
+		
+		
+		$.ajax({
+			url: siteURL + "/user/updateMessage/" + id,
+		});
+        
+        
+        if (isi) {
+            $('#isiPesan').html('');
+            var code = '';
+            code += '<div class="portlet">\n';
+            code += '<div class="portlet box grey">\n';
+            code += '<div class="portlet-title">\n';
+            code += '<div class="caption"><i class="icon-reorder"></i>Isi Pesan</div>\n';
+            code += '<div class="tools"><a href="javascript:;" class="collapse"></a></div>\n';
+            code += '</div>\n';
+            code += '<div class="portlet-body">\n';
+            code += '<div class="well">\n';
+            code += '<h4>'+judul+'</h4>\n';
+            code += isi+'\n';
+            code += '</div>\n';
+            code += '</div>\n';
+            code += '</div>\n';
+            code += '</div>\n';
+            code += '</div>\n';
+                     
+            $('#isiPesan').append(code);
+                    
+        } else {
+            var opt = $('Isi pesan tidak tersedia');
+            $('#isiPesan').append(opt);                
+        }
+    });
+	
     
     jQuery('.icon-trash, .delUkm').click(function(){
         var id = $(this).attr('data-val');

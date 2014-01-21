@@ -209,7 +209,7 @@ class UkmModel extends CI_Model {
     }
 	
 	public function countData($sort = NULL, $cari = NULL, $price = NULL) {
-        if ($sort) {
+        if (!is_numeric($sort)) {
             if ($sort == 'ukm') {
 				$this->db->select('ukm.*');
 				$this->db->select('ukm.id as idUkm');
@@ -229,8 +229,19 @@ class UkmModel extends CI_Model {
             } else if ($sort == 'produk') {
                 $query = $this->db->get_where($this->tab_produk);
                 $data = $query->result();
-            }
-        }
+            } 
+        } else {				
+		$this->db->select('*');
+		$this->db->select('ukm.id AS idUkm');
+		$this->db->from('ukmkategori');
+		$this->db->join('ukm', 'ukmkategori.id = ukm.idKategoriUkm', 'INNER');
+		$this->db->join('ukmprofile', 'ukm.idUkmProfile = ukmprofile.id', 'INNER');		
+		$this->db->join('user', 'ukm.idUser = user.id', 'INNER');
+		$this->db->where('ukmkategori.id', $sort);
+		$this->db->where('user.isActive', 1);
+		$query = $this->db->get();
+		$data = $query->result();
+			}
         if ($cari) {
             $this->db->like('namaProducts', $cari);
             $query = $this->db->get($this->tab_products);
@@ -247,7 +258,7 @@ class UkmModel extends CI_Model {
     }
 
     public function fetchData($limit, $start, $sort = NULL, $cari = NULL, $price = NULL) {
-        if ($sort) {
+        if (!is_numeric($sort)) {
 			switch ($sort){
 				case 'ukm':					
 					$this->db->select('ukm.*');
@@ -278,7 +289,18 @@ class UkmModel extends CI_Model {
 					$query = $this->db->get();
 					$data = $query->result();
 			}
-        }
+        } else {			
+		$this->db->select('*');
+		$this->db->select('ukm.id AS idUkm');
+		$this->db->from('ukmkategori');
+		$this->db->join('ukm', 'ukmkategori.id = ukm.idKategoriUkm', 'INNER');
+		$this->db->join('ukmprofile', 'ukm.idUkmProfile = ukmprofile.id', 'INNER');		
+		$this->db->join('user', 'ukm.idUser = user.id', 'INNER');
+		$this->db->where('ukmkategori.id', $sort);
+		$this->db->where('user.isActive', 1);
+		$query = $this->db->get();
+		return $query->result();
+		}
         if ($cari) {
             $this->db->select($this->tab_products . '.*');
             $this->db->select($this->tab_category . '.namaCategory');

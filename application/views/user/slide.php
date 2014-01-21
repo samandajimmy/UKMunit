@@ -49,11 +49,11 @@
                             ?>
                         <li class="span4 clearfix">
                             <div class="thumbImage">
-                                <a href="#"><img src="<?php echo base_url('artikel/thumbnail/' . $row->gambarArtikel); ?>" alt=""></a>
+                                <a href="<?php echo site_url('user/artikelDetail/' . $row->id); ?>"><img src="<?php echo base_url('artikel/thumbnail/' . $row->gambarArtikel); ?>" alt=""></a>
                             </div>
                             <div class="thumbSetting">
                                 <div class="thumbTitle">
-                                    <a href="#" class="invarseColor">
+                                    <a href="<?php echo site_url('user/artikelDetail/' . $row->id); ?>" class="invarseColor">
                                         <?php echo $row->namaArtikel; ?>
                                     </a>
                                 </div>

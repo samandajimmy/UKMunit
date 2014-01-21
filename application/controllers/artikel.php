@@ -34,7 +34,7 @@ class Artikel extends CI_Controller {
     public function artikelList() {
         $data['notif'] = $this->session->flashdata('notif');
         $data['action'] = site_url('artikel/artikelDeleteSelected');
-        $data['artikel'] = $this->artikelModel->getAllArtikel();
+        $data['artikel'] = $this->artikelModel->getArtikelByUser($this->session->userdata('id'));
         $data['view'] = 'admin/listArtikel';
         $data['title'] = 'List Artikel';
         $this->load->view('templateAdmin', $data);

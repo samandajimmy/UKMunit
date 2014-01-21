@@ -59,10 +59,10 @@
                     if (isset($artikel)) {
                         foreach ($artikel as $row) {
 						$isiArtikel = $row->isiArtikel;
-						if (strlen($isiArtikel) > 200) {
+						if (strlen($isiArtikel) > 100) {
 
 							// truncate string
-							$stringCut = substr($isiArtikel, 0, 200);
+							$stringCut = substr($isiArtikel, 0, 100);
 
 							// make sure it ends in a word so assassinate doesn't become ass...
 							$isiArtikel = substr($stringCut, 0, strrpos($stringCut, ' ')).'... '; 

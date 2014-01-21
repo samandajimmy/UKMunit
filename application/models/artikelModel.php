@@ -172,6 +172,15 @@ class ArtikelModel extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+	
+	public function getArtikelByUser($id){
+        $this->db->select('*');
+        $this->db->from($this->tab_artikel);
+        $this->db->where('inputBy', $id);
+        $this->db->order_by('tglInput', 'DESC');
+        $query = $this->db->get();
+        return $query->result();
+	}
 
 }
 

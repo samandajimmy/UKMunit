@@ -11,7 +11,7 @@
                 if (isset($kategori)) {
                     foreach ($kategori as $row) {
                         ?>                        
-                        <li><a class="invarseColor" href="#"><?php echo $row->namaKategoriUkm; ?></a></li>
+                        <li><a class="invarseColor" href="<?php echo site_url('user/ukmKategori/' . $row->id); ?>"><?php echo $row->namaKategoriUkm; ?></a></li>
                         <?php
                     }
                 }

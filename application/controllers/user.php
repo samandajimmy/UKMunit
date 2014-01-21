@@ -474,10 +474,34 @@ class User extends CI_Controller {
 	public function inbox(){
 		if ($this->session->userdata('logged_in') && $this->session->userdata('tipeUser') == 1){			
 		$data['notif'] = $this->session->flashdata('notif');
+        $data['action'] = site_url('artikel/artikelDeleteSelected');
+        $data['msg'] = $this->userModel->getMessage(0);
 		$data['view'] = 'admin/inbox';
 		$data['title'] = 'Kota Masuk Pengaduan Pelanggan';
 		$this->load->view('templateAdmin', $data);
 		}
+	}
+	
+	public function updateMessage($id){
+		$this->db->update('message', array('status' => 1), array('id' => $id));
+	}
+	
+	public function ukmKategori($id){	
+        $data = $this->ukmModel->pagination('ukmKategori', $id, $cari = NULL, $price = NULL);
+        $data['notif'] = $this->session->flashdata('notif');
+        $data['view'] = 'user/ukmList';
+        $data['title'] = 'Daftar UKM Kami';
+        $data['kategori'] = $this->ukmModel->getAllKategoriUkm();
+        $this->load->view('templateUser', $data);
+	}
+	
+	public function readMessage(){			
+		$data['notif'] = $this->session->flashdata('notif');
+        $data['action'] = site_url('artikel/artikelDeleteSelected');
+        $data['msg'] = $this->userModel->getMessage(1);
+		$data['view'] = 'admin/inbox';
+		$data['title'] = 'Kota Masuk Pengaduan Pelanggan';
+		$this->load->view('templateAdmin', $data);
 	}
 
 }

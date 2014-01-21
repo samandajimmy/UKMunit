@@ -177,6 +177,27 @@ class UserModel extends CI_Model {
             return $res;
         }
     }
+	
+	public function getUkmByKategori($id){
+		$this->db->select('*');
+		$this->db->select('ukm.id AS idUkm');
+		$this->db->from('ukmkategori');
+		$this->db->join('ukm', 'ukmkategori.id = ukm.idKategoriUkm', 'INNER');
+		$this->db->join('ukmprofile', 'ukm.idUkmProfile = ukmprofile.id', 'INNER');
+		$this->db->where('ukmkategori.id', $id);
+		$query = $this->db->get();
+		return $query->result();
+		
+	}
+	
+	public function getMessage($status){
+		$this->db->select('*');
+		$this->db->from('message');
+		$this->db->where('status', $status);
+		$this->db->order_by('tglKirim', $status);
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 }
 
