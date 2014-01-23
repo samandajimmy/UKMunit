@@ -18,6 +18,11 @@ class UserModel extends CI_Model {
         return $query->result();
     }
 
+    public function getAllUkm() {
+        $query = $this->db->get_where($this->tab_user, array('tipeUser' => 2));
+        return $query->result();
+    }
+
     public function getUserDetail($id = NULL) {
         $query = $this->db->get_where($this->tab_user, array('id' => $id));
         return $query->result();

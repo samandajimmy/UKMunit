@@ -14,39 +14,38 @@
         </div>
         <!-- END PAGE HEADER--> 
         <!-- BEGIN PAGE CONTENT-->
-		
-		<?php
-    
-                            $this->db->select('*');
-							$this->db->from('message');
-							$this->db->where('status', 0);
-							$query = $this->db->get();
-							$result = $query->result();
-							$counter = count($result);
-							
-							$this->db->select('*');
-							$this->db->from('message');
-							$this->db->where('status', 1);
-							$query = $this->db->get();
-							$result = $query->result();
-							$counterR = count($result);
-    ?>
-		
-		
-				<div class="row-fluid inbox">
-					<div class="span2">
-						<ul class="inbox-nav margin-bottom-10">
-							<li class="inbox active">
-								<a href="<?php echo site_url('user/inbox'); ?>" class="btn" data-title="Inbox">Inbox(<?php echo $counter; ?>)</a>
-								<b></b>
-							</li>
-							<li class="sent"><a class="btn" href="<?php echo site_url('user/readMessage'); ?>"  data-title="Sent">Read Messages(<?php echo $counterR; ?>)</a><b></b></li>
 
-						</ul>
-					</div>
-					<div class="span10">
-						<div class="content">
-						
+        <?php
+        $this->db->select('*');
+        $this->db->from('message');
+        $this->db->where('status', 0);
+        $query = $this->db->get();
+        $result = $query->result();
+        $counter = count($result);
+
+        $this->db->select('*');
+        $this->db->from('message');
+        $this->db->where('status', 1);
+        $query = $this->db->get();
+        $result = $query->result();
+        $counterR = count($result);
+        ?>
+
+
+        <div class="row-fluid inbox">
+            <div class="span2">
+                <ul class="inbox-nav margin-bottom-10">
+                    <li class="inbox active">
+                        <a href="<?php echo site_url('user/inbox'); ?>" class="btn" data-title="Inbox">Inbox(<?php echo $counter; ?>)</a>
+                        <b></b>
+                    </li>
+                    <li class="sent"><a class="btn" href="<?php echo site_url('user/readMessage'); ?>"  data-title="Sent">Read Messages(<?php echo $counterR; ?>)</a><b></b></li>
+
+                </ul>
+            </div>
+            <div class="span10">
+                <div class="content">
+
                     <div class="portlet-body">
                         <!-- <div class="table-toolbar">
                             <div class="btn-group">
@@ -64,13 +63,13 @@
                                 </ul>
                             </div>
                         </div> -->
-                        <form action="<?php //echo $action; ?>" method="POST">
+                        <form action="<?php //echo $action;  ?>" method="POST">
                             <table class="table table-striped table-bordered table-hover" id="sample_1">
                                 <thead>
                                     <tr>
                                         <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
                                         <th>Pengirim</th>
-										<th>Email</th>
+                                        <th>Email</th>
                                         <th>Pesan</th>
                                         <th>Tanggal Kirim</th>
                                         <th></th>
@@ -102,11 +101,11 @@
                             <p id="btn-field" style="text-align: center;"></p>
                         </form>
                     </div>
-					<div class="row-fluid" id="isiPesan">
+                    <div class="row-fluid" id="isiPesan">
+                    </div>
+                </div>
+            </div>
         </div>
-						</div>
-					</div>
-				</div>
 
 
 

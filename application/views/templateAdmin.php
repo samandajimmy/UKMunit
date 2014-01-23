@@ -295,12 +295,12 @@
                             <?php
                         }
                         ?>
-<!--                        <li class="last ">
-                            <a href="charts.html">
+                        <li class="last ">
+                            <a href="<?php echo site_url('msg/msgMail'); ?>">
                                 <i class="icon-bar-chart"></i> 
-                                <span class="title">Visual Charts</span>
+                                <span class="title">UKM Mail</span>
                             </a>
-                        </li>-->
+                        </li>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
